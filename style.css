@@ -106,3 +106,19 @@ body{
     align-items: center;
     justify-content: center; 
 }
+
+.home{
+    color: white;
+}
+.library, .left{
+    color: white;
+}
+
+
+.library_head2-btn{
+    padding: 5px 7px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.325);
+    color: white;
+}
