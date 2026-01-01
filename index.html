@@ -9,8 +9,14 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
-    <div class="container grid-container bg1">
+    <!-- CSS-Only Toggle Hack -->
+    <input type="checkbox" id="sidebar-toggle" style="display: none;">
+    
+    <div class="container bg1">
       <div class="navbar flex">
+        <label for="sidebar-toggle" class="hamburger-btn">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="white" stroke-width="2" fill="none"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </label>
         <div class="logo">surx</div>
         <div class="search flex">
           <button class="btn home">
@@ -69,7 +75,6 @@
           </div>
         </div>
         <div class="profile-icon-div flex justify-center items-center">
-          <div class="profile-icon-div1 flex justify-center items-center">
             <button class="explorebtn">Explore Premium</button>
             <div class="installapp flex justify-center items-center">
               <svg
@@ -130,7 +135,6 @@
             </button>
           </div>
         </div>
-      </div>
       <div class="left">
         <div class="library_head">
           <div class="your-library">Your library</div>
@@ -206,7 +210,49 @@
           </div>
         </div>
         <div class="library-content">
-          <div class="card"></div>
+          <div class="card flex items-center p-2 hover-bg">
+             <img src="https://misc.scdn.co/liked-songs/liked-songs-64.png" alt="Liked Songs" class="playlist-thumb">
+             <div class="playlist-info">
+                <h4>Liked Songs</h4>
+                <p>Playlist • 123 songs</p>
+             </div>
+          </div>
+          <div class="card flex items-center p-2 hover-bg">
+             <div class="playlist-thumb placeholder-bg"></div>
+             <div class="playlist-info">
+                <h4>My Playlist #1</h4>
+                <p>Playlist • Atharva</p>
+             </div>
+          </div>
+           <!-- Added for scrolling demo -->
+           <div class="card flex items-center p-2 hover-bg">
+             <div class="playlist-thumb placeholder-bg"></div>
+             <div class="playlist-info">
+                <h4>Late Night Vibes</h4>
+                <p>Playlist • Surx</p>
+             </div>
+          </div>
+           <div class="card flex items-center p-2 hover-bg">
+             <div class="playlist-thumb placeholder-bg"></div>
+             <div class="playlist-info">
+                <h4>Coding Focus</h4>
+                <p>Playlist • Surx</p>
+             </div>
+          </div>
+           <div class="card flex items-center p-2 hover-bg">
+             <div class="playlist-thumb placeholder-bg"></div>
+             <div class="playlist-info">
+                <h4>Gym Motivation</h4>
+                <p>Playlist • Surx</p>
+             </div>
+          </div>
+           <div class="card flex items-center p-2 hover-bg">
+             <div class="playlist-thumb placeholder-bg"></div>
+             <div class="playlist-info">
+                <h4>Top Hits 2025</h4>
+                <p>Playlist • Spotify</p>
+             </div>
+          </div>
         </div>
       </div>
       <div class="right">
@@ -387,7 +433,40 @@
           <div class="made-for-you"></div>
         </div>
       </div>
-      <div class="player"></div>
+      <div class="player flex items-center justify-between">
+          <div class="player-left flex items-center">
+              <img src="assets/img/maxresdefault.webp" alt="Cover" class="now-playing-cover">
+              <div class="song-info">
+                  <h4>Chandrachooda</h4>
+                  <p>Anoop Sankar</p>
+              </div>
+              <button class="btn-icon like-btn">
+                  <svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="#b3b3b3"><path d="M1.69 2H1.69C.767 3.256.402 4.774.654 6.264c.23 1.358 1.01 2.593 2.155 3.42l5.12 3.738a.382.382 0 0 0 .445-.008l4.81-3.693c1.155-.887 1.83-2.14 2.062-3.57.252-1.49.02-3.008-.663-4.263l-.001-.001C12.98 1.88 9.27 1.48 8 3.5 6.73 1.48 3.02 1.88 1.69 2zM.602 1.346c1.883-2.074 6.944-1.282 7.398 1.837.454-3.119 5.515-3.911 7.398-1.837 1.258 2.27 1.144 5.347-1.144 7.422l-5.698 4.354a1.382 1.382 0 0 1-1.71 0l-5.698-4.354C-.542 6.693-.656 3.616.602 1.346z"></path></svg>
+              </button>
+          </div>
+          
+          <div class="player-center flex flex-col items-center justify-center">
+              <div class="player-controls flex items-center">
+                  <button class="btn-icon"><svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="#b3b3b3"><path d="M13.151.922a.75.75 0 1 0-1.06 1.06L13.109 3H11.16a3.75 3.75 0 0 0-3.75 3.75v5a.75.75 0 0 0 1.5 0v-5a2.25 2.25 0 0 1 2.25-2.25h1.949L12.09 5.519a.75.75 0 1 0 1.06 1.06l2.105-2.105a.75.75 0 0 0 0-1.06l-2.105-2.105zM2.849 15.078a.75.75 0 1 0 1.06-1.06L2.891 13h1.949a3.75 3.75 0 0 0 3.75-3.75v-5a.75.75 0 0 0-1.5 0v5a2.25 2.25 0 0 1-2.25 2.25H2.89l1.019-1.019a.75.75 0 1 0-1.06-1.06l-2.105 2.105a.75.75 0 0 0 0 1.06l2.105 2.105z"></path></svg></button>
+                  <button class="btn-icon"><svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="#b3b3b3"><path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"></path></svg></button>
+                  <button class="btn-icon play-pause-btn bg-white rounded-full p-2"><svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="black"><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288z"></path></svg></button>
+                  <button class="btn-icon"><svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="#b3b3b3"><path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"></path></svg></button>
+                  <button class="btn-icon"><svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="#b3b3b3"><path d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75h-8.5A3.75 3.75 0 0 1 0 9.75v-5zM3.75 2.5a2.25 2.25 0 0 0-2.25 2.25v5a2.25 2.25 0 0 0 2.25 2.25h8.5a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5z"></path></svg></button>
+              </div>
+              <div class="playback-bar flex items-center">
+                  <span class="text-xs text-gray">0:00</span>
+                  <div class="progress-bar-bg"><div class="progress-bar-fill"></div></div>
+                  <span class="text-xs text-gray">3:45</span>
+              </div>
+          </div>
+
+          <div class="player-right flex items-center justify-end">
+              <button class="btn-icon"><svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="#b3b3b3"><path d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 2.5 2.5v.5h-14v-.5zM3.5 2.5a1 1 0 0 0-1 1v1h11v-1a1 1 0 0 0-1-1h-9z"></path></svg></button>
+              <button class="btn-icon"><svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="#b3b3b3"><path d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15h-6.5A1.75 1.75 0 0 1 6 13.25V2.75zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25h-6.5zm-6 0a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 0 1 0 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"></path></svg></button>
+              <button class="btn-icon"><svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="#b3b3b3"><path d="M9.741.596A2 2 0 0 0 8.166 0H1v6h9.092a.5.5 0 0 0 .494-.41l.79-4.455a3.5 3.5 0 0 0-.635-2.539zM8.166 1.5c.099 0 .196.01.286.03l-.707 3.97H2.5V1.5h5.666zM1 7.5a.5.5 0 0 1 .5-.5h8.927a4.498 4.498 0 0 1 1.05-.121c.54 0 1.07.098 1.565.289l-1.03 5.808A3.5 3.5 0 0 1 8.52 16H2.5v-1.5h6.02a2 2 0 0 0 1.994-2.28L4.694 8H1.5a.5.5 0 0 1-.5-.5z"></path></svg></button>
+              <div class="volume-bar-bg ml-2"><div class="volume-bar-fill"></div></div>
+          </div>
+      </div>
     </div>
   </body>
 </html>

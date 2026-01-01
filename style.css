@@ -6,29 +6,44 @@
 }
 
 html {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 body {
     background-color: black;
+    color: white;
+    height: 100vh;
+    width: 100vw;
 }
 
-.left {
-    width: 24vw;
+/* --- Layout Grid (New Structure to support Player) --- */
+.container {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-columns: 24vw 1fr;
+    grid-template-rows: auto 1fr 90px;
+    grid-template-areas:
+        "sidebar navbar"
+        "sidebar main"
+        "player player";
+    gap: 8px;
+    padding: 8px;
+    background-color: black;
 }
 
-.right {
-    padding-left: 30px;
-    width: 74vw;
-    border-radius: 5px;
-    background: linear-gradient(180deg, #00f1fe6b, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.085));
-}
-
+/* --- Original Navbar Styles --- */
 .navbar {
-    grid-column: 1/3;
+    grid-area: navbar;
+    background-color: #121212;
+    /* Fallback */
+    /* Original Gradient or BG */
+    background: #101010;
+    border-radius: 8px 8px 0 0;
+    padding: 16px 24px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
 }
 
 .logo {
@@ -38,125 +53,22 @@ body {
     background: linear-gradient(135deg, #00f2fe, #4facfe);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: none;
+    /* Hidden in main view as per original? Or maybe visible? Let's show it if space permits, but original had it structure differently. */
 }
 
-.btn {
-    width: 50px;
-    height: 50px;
-    padding: 5px;
-    border: none;
-    border-radius: 50%;
-    background-color: rgb(40, 39, 39);
-}
-
-.searchbar input {
-    padding: 2px 65px 2px 2px;
-    color: white;
-    background-color: transparent;
-    border: none;
-    min-width: 250px;
-}
-
-.searchbar input:focus {
-    outline: none;
-}
-
-.searchbar input::placeholder {
-    color: #b3b3b3;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-
-.search {
-    gap: 7px;
-    /* margin-left: 190px; */
-}
-
-.searchbar {
-    color: white;
-    border: 2px solid rgb(40, 39, 39);
-    background-color: rgb(40, 39, 39);
-    border-radius: 30px;
-    height: 60px;
-    width: fit-content;
-
-}
-
-.home {
-    background-color: rgb(40, 39, 39);
-
-}
-
-.profile-icon-div {
-    gap: 10px;
-}
-
-.profile-icon-div1 {
-    gap: 10px;
-}
-
-.profile-icon-div2 {
-    gap: 60px;
-}
-
-.profile-icon-div1 .explorebtn {
-    font-weight: bolder;
-    padding: 6px 10px;
-    border-radius: 25px;
-    border: none;
-}
-
-.profile-icon-div1 .installapp {
-    gap: 4px;
-}
-
-.profile-icon-div1 a {
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    color: #b3b3b3;
-    font-size: medium;
-}
-
-.friends,
-.alert {
-    background-color: transparent;
-    border: none;
-    margin: 5px;
-}
-
-.profile-icon {
-    background-color: rgb(40, 39, 39);
-    border: none;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-
-.profile-icon span {
-    background-color: rgb(104, 68, 2);
-    font-weight: bolder;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.home {
-    color: white;
-}
-
-
+/* --- Sidebar (.left) --- */
 .left {
+    grid-area: sidebar;
+    background-color: #121212;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     color: white;
 }
 
-.left {
-    border-radius: 5px;
-    background: linear-gradient(180deg, #00f1fe6b, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.085));
-}
-
+/* Original Library Header Styles */
 .library_head {
     display: flex;
     align-items: center;
@@ -171,72 +83,31 @@ body {
     margin: 2px;
 }
 
-.library_head .create span {
-
-    background-color: transparent;
-}
-
 .library_head .create {
     align-self: center;
     background-color: rgba(255, 255, 255, 0.132);
     border: none;
     border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-right: 12px;
 }
 
 .library_head .max {
     background-color: rgba(255, 255, 255, 0.132);
     align-self: center;
     border-radius: 50%;
+    padding: 4px;
 }
 
-.library_head2 {
-    position: relative;
-    margin: 1px 8px;
-    overflow-x: auto;
-    gap: 8px;
+.library-content {
+    overflow-y: auto;
+    flex: 1;
+    padding: 10px;
 }
 
-.library_head3 {
-    margin: 0px 15px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.library_head3 .recents {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #b3b3b3;
-}
-
-.library_head2-btn {
-
-    padding: 5px 10px;
-    border: none;
-    position: relative;
-    z-index: 2;
-    border-radius: 20px;
-    background-color: #535353;
-    color: white;
-    flex-shrink: 0;
-    white-space: nowrap;
-    font-size: 14px;
-    font-weight: 400;
-
-}
-
-.library_head2::-webkit-scrollbar {
-    display: none;
-}
-
-.genre {
-    padding: 20px 20px 20px 0px;
-}
-
+.library_head2-btn,
 .genre-btn {
     padding: 5px 10px;
     border: none;
@@ -251,90 +122,497 @@ body {
     font-weight: 400;
 }
 
-.recently-played {
-    display: flex;
-    gap: 10px;
+/* --- Main Content (.right) --- */
+.right {
+    grid-area: main;
+    /* Original Gradient for Main Content */
+    background: linear-gradient(180deg, #00f1fe6b, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.085));
+    border-radius: 0 0 8px 8px;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+    /* width: 74vw; Original was fixed, now dynamic via grid */
 }
 
-.recently-played-card img {
-    object-fit: cover;
-    object-position: center;
+/* --- Player Bar (New Content) --- */
+.player {
+    grid-area: player;
+    background-color: black;
+    border-top: 1px solid #282828;
+    padding: 0 16px;
+    z-index: 100;
+}
+
+/* --- Components & Original Styles --- */
+.btn {
     width: 50px;
     height: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(40, 39, 39);
+    cursor: pointer;
 }
 
-.recently-played-card {
+.searchbar input {
+    padding: 2px 65px 2px 2px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    min-width: 250px;
+    font-weight: bold;
+}
+
+.searchbar input::placeholder {
+    color: #b3b3b3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.searchbar input:focus {
+    outline: none;
+}
+
+.searchbar {
+    color: white;
+    border: 2px solid rgb(40, 39, 39);
+    background-color: rgb(40, 39, 39);
+    border-radius: 30px;
+    height: 60px;
+    width: fit-content;
     display: flex;
     align-items: center;
-    gap: 10px;
-    width: 200px;
+    padding-left: 10px;
+}
+
+.search {
+    gap: 7px;
+}
+
+.explorebtn {
+    font-weight: bolder;
+    padding: 6px 10px;
+    border-radius: 25px;
+    border: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.installapp {
+    gap: 4px;
+}
+
+.installapp a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #b3b3b3;
+    font-size: medium;
+}
+
+.friends,
+.alert {
+    background-color: transparent;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.profile-icon {
+    background-color: rgb(40, 39, 39);
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-icon span {
+    background-color: rgb(104, 68, 2);
+    font-weight: bolder;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* --- New Content Styles (Cards/Grid from User Request) --- */
+.recently-played,
+.picked-for-you,
+.made-for-you-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+/* Cards - keeping improved layout but simpler styling to match original */
+.recently-played-card,
+.picked-for-you-card,
+.made-for-you-card {
     background-color: #6a6a6a7f;
+    /* Original color */
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    height: 100%;
+    transition: background-color 0.3s;
+}
+
+.recently-played-card:hover,
+.picked-for-you-card:hover {
+    background-color: #535353;
+}
+
+.recently-played-card img,
+.picked-for-you-card img,
+.made-for-you-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
     border-radius: 5px;
 }
 
-.recently-played-card h4 {
+.recently-played-card h4,
+.picked-for-you-card-details h4 {
     color: white;
     font-size: 16px;
     font-weight: 500;
 }
 
-.recommended {
-    display: flex;
-    margin: 10px;
-}
-
-.picked-for-you {
-    padding: 10px 10px 0px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.picked-for-you-card {
-    display: flex;
-    gap: 10px;
-}
-
-.picked-for-you-card-details h4 {
-    color: rgba(255, 255, 255, 0.426);
-}
-
 .picked-for-you-card-details h1 {
-    width: 200px;
-    height: 50px;  
-    white-space: nowrap;          
+    color: #b3b3b3;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    height: auto;
+    width: auto;
+    white-space: normal;
 }
 
-/* rgba(255, 255, 255, 0.132) */
-.picked-for-you-card img {
-    object-fit: cover;
-    width: 200px;
-    height: 200px;
+/* Library List Items */
+.card {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.picked-for-you h1 {
+.card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.playlist-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.placeholder-bg {
+    background: linear-gradient(135deg, #121212, #333);
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.playlist-info h4 {
+    font-size: 16px;
+    font-weight: 500;
     color: white;
-    font-size: 24px;
-    font-weight: 700;
 }
-.made-for-you{
-    display: flex;
-    flex-direction: column;
+
+.playlist-info p {
+    font-size: 13px;
+    color: #b3b3b3;
 }
-.made-for-you-name{
-    max-width: 600px;
+
+/* Player Bar Internals */
+.player-left {
+    width: 30%;
+    min-width: 180px;
+}
+
+.now-playing-cover {
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    margin-right: 14px;
+}
+
+.song-info h4 {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 2px;
+}
+
+.song-info p {
+    font-size: 11px;
+    color: #b3b3b3;
+}
+
+.player-center {
+    width: 40%;
+    max-width: 722px;
+}
+
+.player-controls {
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.playback-bar {
+    width: 100%;
     display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.progress-bar-bg {
+    height: 4px;
+    background-color: #4d4d4d;
+    border-radius: 2px;
+    width: 100%;
+    position: relative;
+}
+
+.progress-bar-fill {
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.player-right {
+    width: 30%;
+    min-width: 180px;
+    gap: 8px;
+}
+
+.volume-bar-bg {
+    width: 93px;
+    height: 4px;
+    background-color: #4d4d4d;
+    border-radius: 2px;
+}
+
+.volume-bar-fill {
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Utils */
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
     justify-content: space-between;
 }
-.made-for-you-card{
-    /* width: ; */
+
+.justify-center {
+    justify-content: center;
 }
-.made-for-you-card img{
-    object-fit: cover;
-    object-position: center;
-    width: 200px;
-    height: 200px;
-    
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.ml-2 {
+    margin-left: 8px;
+}
+
+.text-xs {
+    font-size: 11px;
+    color: #b3b3b3;
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-pause-btn {
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    transition: transform 0.1s;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- Responsive & Hamburger Logic --- */
+.hamburger-btn {
+    display: none;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "navbar"
+            "main"
+            "player";
+        grid-template-rows: auto 1fr 140px;
+    }
+
+    /* Navbar Responsiveness: Hamburger + Search + Profile ONLY */
+    .hamburger-btn {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .navbar {
+        gap: 12px;
+        padding: 10px;
+        /* Bit tighter on mobile */
+    }
+
+    /* Hide everything else */
+    .logo,
+    .btn.home,
+    .installapp,
+    .explorebtn,
+    .search button
+
+    /* Hide the search magnifying glass button if outside input */
+        {
+        display: none !important;
+    }
+
+    /* Search Bar Logic */
+    .search {
+        flex: 1;
+        /* Takes all available space */
+        display: flex;
+        justify-content: center;
+        /* Center if max-width is used, or stretch */
+        min-width: 0;
+    }
+
+    .searchbar {
+        width: 100%;
+        height: 48px;
+        min-width: 0;
+        margin: 0;
+        /* Reset margins */
+    }
+
+    .searchbar input {
+        width: 100%;
+        font-size: 14px;
+        padding-left: 12px;
+        /* Adjust padding since icon button might be hidden */
+    }
+
+    /* Profile Icon */
+    .profile-icon-div {
+        flex-shrink: 0;
+        /* Do not shrink */
+        display: flex;
+        /* Ensure it's displayed */
+    }
+
+    .profile-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Hide specific profile sub-divs if they contain extra text/buttons, 
+       but keep the main icon wrapper */
+    .profile-icon-div1,
+    .profile-icon-div2 .alert,
+    .profile-icon-div2 .friends {
+        display: none !important;
+    }
+
+    .profile-icon-div2 {
+        gap: 0;
+        display: flex;
+    }
+
+    /* Reset gap */
+
+    /* CSS Toggle Sidebar */
+    .left {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 85%;
+        max-width: 320px;
+        z-index: 200;
+        background-color: black;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-right: 1px solid #333;
+        padding-top: 20px;
+    }
+
+    #sidebar-toggle:checked~.container .left {
+        transform: translateX(0);
+    }
+
+    /* Overlay */
+    #sidebar-toggle:checked~.container::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 150;
+    }
+
+    /* Player Mobile */
+    .player {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .player-left {
+        width: 100%;
+    }
+
+    .player-center {
+        width: 100%;
+    }
+
+    .player-right {
+        display: none;
+    }
 }
