@@ -16,7 +16,6 @@ body {
     width: 100vw;
 }
 
-/* --- Layout Grid (New Structure to support Player) --- */
 .container {
     display: grid;
     height: 100vh;
@@ -32,12 +31,9 @@ body {
     background-color: black;
 }
 
-/* --- Original Navbar Styles --- */
 .navbar {
     grid-area: navbar;
     background-color: #121212;
-    /* Fallback */
-    /* Original Gradient or BG */
     background: #101010;
     border-radius: 8px 8px 0 0;
     padding: 16px 24px;
@@ -54,10 +50,8 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: none;
-    /* Hidden in main view as per original? Or maybe visible? Let's show it if space permits, but original had it structure differently. */
 }
 
-/* --- Sidebar (.left) --- */
 .left {
     grid-area: sidebar;
     background-color: #121212;
@@ -68,7 +62,6 @@ body {
     color: white;
 }
 
-/* Original Library Header Styles */
 .library_head {
     display: flex;
     align-items: center;
@@ -127,19 +120,15 @@ body {
     font-weight: 400;
 }
 
-/* --- Main Content (.right) --- */
 .right {
     grid-area: main;
-    /* Original Gradient for Main Content */
     background: linear-gradient(180deg, #00f1fe6b, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.085));
     border-radius: 0 0 8px 8px;
     overflow-y: auto;
     padding: 20px;
     position: relative;
-    /* width: 74vw; Original was fixed, now dynamic via grid */
 }
 
-/* --- Player Bar (New Content) --- */
 .player {
     grid-area: player;
     background-color: black;
@@ -148,7 +137,6 @@ body {
     z-index: 100;
 }
 
-/* --- Components & Original Styles --- */
 .btn {
     width: 50px;
     height: 50px;
@@ -244,7 +232,6 @@ body {
     color: white;
 }
 
-/* --- New Content Styles (Cards/Grid from User Request) --- */
 .recently-played,
 .picked-for-you,
 .made-for-you-card-container {
@@ -255,12 +242,10 @@ body {
     margin-bottom: 32px;
 }
 
-/* Cards - keeping improved layout but simpler styling to match original */
 .recently-played-card,
 .picked-for-you-card,
 .made-for-you-card {
     background-color: #6a6a6a7f;
-    /* Original color */
     padding: 16px;
     border-radius: 8px;
     display: flex;
@@ -306,7 +291,6 @@ body {
     white-space: normal;
 }
 
-/* Library List Items */
 .card {
     display: flex;
     align-items: center;
@@ -345,7 +329,6 @@ body {
     color: #b3b3b3;
 }
 
-/* Player Bar Internals */
 .player-left {
     width: 30%;
     min-width: 180px;
@@ -421,7 +404,6 @@ body {
     border-radius: 2px;
 }
 
-/* Utils */
 .flex {
     display: flex;
 }
@@ -475,7 +457,6 @@ body {
     transform: scale(1.05);
 }
 
-/* --- Responsive & Hamburger Logic --- */
 .hamburger-btn {
     display: none;
     cursor: pointer;
@@ -492,7 +473,6 @@ body {
         grid-template-rows: auto 1fr 140px;
     }
 
-    /* Navbar Responsiveness: Hamburger + Search + Profile ONLY */
     .hamburger-btn {
         display: block;
         flex-shrink: 0;
@@ -501,28 +481,22 @@ body {
     .navbar {
         gap: 12px;
         padding: 10px;
-        /* Bit tighter on mobile */
     }
 
-    /* Hide everything else */
     .logo,
     .btn.home,
     .installapp,
     .explorebtn,
     .search button
 
-    /* Hide the search magnifying glass button if outside input */
         {
         display: none !important;
     }
 
-    /* Search Bar Logic */
     .search {
         flex: 1;
-        /* Takes all available space */
         display: flex;
         justify-content: center;
-        /* Center if max-width is used, or stretch */
         min-width: 0;
     }
 
@@ -531,20 +505,16 @@ body {
         height: 48px;
         min-width: 0;
         margin: 0;
-        /* Reset margins */
     }
 
     .searchbar input {
         width: 100%;
         font-size: 14px;
         padding-left: 12px;
-        /* Adjust padding since icon button might be hidden */
     }
 
-    /* Profile Icon */
     .profile-icon-div {
         flex-shrink: 0;
-        /* Do not shrink */
         display: flex;
         gap: 18px;
     }
@@ -554,8 +524,6 @@ body {
         height: 40px;
     }
 
-    /* Hide specific profile sub-divs if they contain extra text/buttons, 
-       but keep the main icon wrapper */
     .profile-icon-div1,
     .profile-icon-div2 .alert,
     .profile-icon-div2 .friends {
@@ -567,9 +535,6 @@ body {
         display: flex;
     }
 
-    /* Reset gap */
-
-    /* CSS Toggle Sidebar */
     .left {
         position: fixed;
         top: 0;
@@ -590,7 +555,6 @@ body {
         transform: translateX(0);
     }
 
-    /* Overlay */
     #sidebar-toggle:checked~.container::after {
         content: '';
         position: fixed;
@@ -602,7 +566,6 @@ body {
         z-index: 150;
     }
 
-    /* Player Mobile */
     .player {
         flex-direction: column;
         justify-content: center;
