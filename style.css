@@ -106,7 +106,12 @@ body {
     flex: 1;
     padding: 10px;
 }
-
+.library_head2{
+    gap: 8px;
+}
+.library_head3{
+    margin: 10px 0px 10px 5px;
+}
 .library_head2-btn,
 .genre-btn {
     padding: 5px 10px;
@@ -541,7 +546,7 @@ body {
         flex-shrink: 0;
         /* Do not shrink */
         display: flex;
-        /* Ensure it's displayed */
+        gap: 18px;
     }
 
     .profile-icon {
@@ -578,6 +583,7 @@ body {
         transition: transform 0.3s ease-in-out;
         border-right: 1px solid #333;
         padding-top: 20px;
+        padding-left: 20px;
     }
 
     #sidebar-toggle:checked~.container .left {
